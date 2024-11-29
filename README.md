@@ -13,19 +13,7 @@ Before building this container, you need to:
 
 ## Building and Running
 
-### Basic version
-1. Build the base Docker image:
-   ```bash
-   docker build --build-arg ZIP_FILE=your-voxta-server.zip -t voxta-server:latest .
-   ```
-
-2. Run the container:
-   ```bash
-   docker run -p 5384:5384 voxta-server:latest
-   ```
-
-### Preconfigured version (optional)
-1. Place your override files in the `override/` directory.
+1. (Optional) Place any override files in the `override/` directory.
    Any file placed here will overwrite the corresponding file in the base installation.
    
    Example: To use a preconfigured database, place it at:
@@ -33,14 +21,14 @@ Before building this container, you need to:
    override/Data/Voxta.db
    ```
 
-2. Build the preconfigured image (requires the base image to be built first):
+2. Build the Docker image:
    ```bash
-   docker build -f Dockerfile.preconfigured --build-arg ZIP_FILE=your-voxta-server.zip -t voxta-server:preconfigured .
+   docker build --build-arg ZIP_FILE=your-voxta-server.zip -t voxta-server:latest .
    ```
 
-3. Run the preconfigured container:
+3. Run the container:
    ```bash
-   docker run -p 5384:5384 voxta-server:preconfigured
+   docker run -p 5384:5384 voxta-server:latest
    ```
 
 The server will be accessible at `http://localhost:5384`

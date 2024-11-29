@@ -38,6 +38,8 @@ RUN sed -i 's/"http:\/\/localhost:5384"/"http:\/\/0.0.0.0:5384"/g' appsettings.j
 RUN python3.11 -m ensurepip --upgrade \
     && python3.11 -m venv Data/Python/python-3.11-venv
 
+# Copy override files
+COPY override/* ./
 
 # Expose the Voxta Server port
 EXPOSE 5384
