@@ -1,6 +1,6 @@
 # Docker Container for Voxta Server
 
-This is a Docker container setup for running [Voxta](https://voxta.ai/), an open-source AI voice chat application. 
+This is a Docker container setup for running [Voxta](https://voxta.ai/), an AI voice chat application. 
 Please note that Voxta is not my project - I'm just providing a Docker configuration for it.
 
 ## Prerequisites
