@@ -6,7 +6,6 @@ ENV DEBIAN_FRONTEND=noninteractive
 # Install required packages
 RUN apt-get update && apt-get install -y \
     software-properties-common \
-    wget \
     unzip \
     && rm -rf /var/lib/apt/lists/*
 
@@ -27,15 +26,15 @@ WORKDIR /app
 # Copy and extract Voxta Server
 COPY Voxta.Server.Linux.v1.0.0-beta.134.zip .
 RUN unzip Voxta.Server.Linux.v1.0.0-beta.134.zip \
-    && rm Voxta.Server.Linux.v1.0.0-beta.134.zip \
-    && sed -i 's/"http:\/\/localhost:5384"/"http:\/\/0.0.0.0:5384"/g' appsettings.json
+    && rm Voxta.Server.Linux.v1.0.0-beta.134.zip
+
+# Update the server binding from localhost to 0.0.0.0 to allow external connections
+RUN sed -i 's/"http:\/\/localhost:5384"/"http:\/\/0.0.0.0:5384"/g' appsettings.json
 
 # Setup Python virtual environment
 RUN python3.11 -m ensurepip --upgrade \
     && python3.11 -m venv Data/Python/python-3.11-venv
 
-# Make sure we use the virtual environment
-ENV PATH="/app/Data/Python/python-3.11-venv/bin:$PATH"
 
 # Expose the Voxta Server port
 EXPOSE 5384
