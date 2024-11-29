@@ -24,3 +24,31 @@ Before building this container, you need to:
    ```
 
 The server will be accessible at `http://localhost:5384`
+
+## Deploying to Google Cloud Run
+
+To deploy the container to Google Cloud Run, first set your project ID:
+
+```bash
+export GOOGLE_PROJECT=my-voxta-project-123
+```
+
+Then run these commands:
+
+```bash
+# Tag the image for Google Container Registry (using v134 to match current Voxta version)
+docker tag voxta-server:latest gcr.io/${GOOGLE_PROJECT}/voxta-server:v134
+
+# Push the image to Google Container Registry
+docker push gcr.io/${GOOGLE_PROJECT}/voxta-server:v134
+
+# Deploy to Cloud Run
+gcloud run deploy voxta-server \
+  --image gcr.io/${GOOGLE_PROJECT}/voxta-server:v134 \
+  --platform managed \
+  --region europe-west1 \
+  --port 5384 \
+  --allow-unauthenticated
+```
+
+This will deploy the server and provide you with a public URL where your Voxta instance is accessible.
