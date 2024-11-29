@@ -24,7 +24,7 @@ Before building this container, you need to:
    docker run -p 5384:5384 voxta-server:latest
    ```
 
-### Preconfigured version
+### Preconfigured version (optional)
 1. Place your override files in the `override/` directory.
    Any file placed here will overwrite the corresponding file in the base installation.
    
