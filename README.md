@@ -14,7 +14,7 @@ Before building this container, you need to:
 ## Building and Running
 
 ### Basic version
-1. Build the Docker image:
+1. Build the base Docker image:
    ```bash
    docker build --build-arg ZIP_FILE=your-voxta-server.zip -t voxta-server:latest .
    ```
@@ -33,9 +33,9 @@ Before building this container, you need to:
    override/Data/Voxta.db
    ```
 
-2. Build the preconfigured image:
+2. Build the preconfigured image (requires the base image to be built first):
    ```bash
-   docker build -f Dockerfile.preconfigured -t voxta-server:preconfigured .
+   docker build -f Dockerfile.preconfigured --build-arg ZIP_FILE=your-voxta-server.zip -t voxta-server:preconfigured .
    ```
 
 3. Run the preconfigured container:
