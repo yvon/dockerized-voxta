@@ -60,15 +60,15 @@ export GOOGLE_PROJECT=my-voxta-project-123
 Then run these commands:
 
 ```bash
-# Tag the image for Google Container Registry (using v134 to match current Voxta version)
-docker tag voxta-server:latest gcr.io/${GOOGLE_PROJECT}/voxta-server:v134
+# Tag the preconfigured image for Google Container Registry (using v134 to match current Voxta version)
+docker tag voxta-server:preconfigured gcr.io/${GOOGLE_PROJECT}/voxta-server:v134-preconfigured
 
 # Push the image to Google Container Registry
-docker push gcr.io/${GOOGLE_PROJECT}/voxta-server:v134
+docker push gcr.io/${GOOGLE_PROJECT}/voxta-server:v134-preconfigured
 
 # Deploy to Cloud Run
 gcloud run deploy voxta-server \
-  --image gcr.io/${GOOGLE_PROJECT}/voxta-server:v134 \
+  --image gcr.io/${GOOGLE_PROJECT}/voxta-server:v134-preconfigured \
   --platform managed \
   --region europe-west1 \
   --port 5384 \
