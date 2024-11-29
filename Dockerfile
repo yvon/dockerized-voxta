@@ -27,7 +27,8 @@ WORKDIR /app
 # Copy and extract Voxta Server
 COPY Voxta.Server.Linux.v1.0.0-beta.134.zip .
 RUN unzip Voxta.Server.Linux.v1.0.0-beta.134.zip \
-    && rm Voxta.Server.Linux.v1.0.0-beta.134.zip
+    && rm Voxta.Server.Linux.v1.0.0-beta.134.zip \
+    && sed -i 's/"http:\/\/localhost:5384"/"http:\/\/0.0.0.0:5384"/g' appsettings.json
 
 # Setup Python virtual environment
 RUN python3.11 -m ensurepip --upgrade \
