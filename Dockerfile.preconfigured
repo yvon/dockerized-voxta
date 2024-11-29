@@ -1,0 +1,4 @@
+FROM voxta-server:latest
+
+# Copy override files
+COPY override/* ./
