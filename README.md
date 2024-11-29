@@ -26,8 +26,3 @@ Before building this container, you need to:
    ```
 
 The server will be accessible at `http://localhost:5384`
-
-## Note
-
-This is just a Docker configuration for Voxta. For the actual Voxta project, please visit:
-https://voxta.ai/
