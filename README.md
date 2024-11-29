@@ -33,12 +33,8 @@ Before building this container, you need to:
    override/Data/Voxta.db
    ```
 
-2. Build both images:
+2. Build the preconfigured image:
    ```bash
-   # Build base image first
-   docker build --build-arg ZIP_FILE=your-voxta-server.zip -t voxta-server:latest .
-   
-   # Build preconfigured image
    docker build -f Dockerfile.preconfigured -t voxta-server:preconfigured .
    ```
 
