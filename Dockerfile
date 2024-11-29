@@ -1,0 +1,40 @@
+FROM ubuntu:latest
+
+# Avoid prompts during package installation
+ENV DEBIAN_FRONTEND=noninteractive
+
+# Install required packages
+RUN apt-get update && apt-get install -y \
+    software-properties-common \
+    wget \
+    unzip \
+    && rm -rf /var/lib/apt/lists/*
+
+# Add Python PPA and install Python 3.11
+RUN add-apt-repository ppa:deadsnakes/ppa -y \
+    && apt-get update \
+    && apt-get install -y \
+    python3.11 \
+    python3.11-dev \
+    python3.11-venv \
+    ffmpeg \
+    libopenal-dev \
+    && rm -rf /var/lib/apt/lists/*
+
+# Create app directory
+WORKDIR /app
+
+# Copy and extract Voxta Server
+COPY Voxta.Server.Linux.v1.0.0-beta.134.zip .
+RUN unzip Voxta.Server.Linux.v1.0.0-beta.134.zip \
+    && rm Voxta.Server.Linux.v1.0.0-beta.134.zip
+
+# Setup Python virtual environment
+RUN python3.11 -m ensurepip --upgrade \
+    && python3.11 -m venv Data/Python/python-3.11-venv
+
+# Make sure we use the virtual environment
+ENV PATH="/app/Data/Python/python-3.11-venv/bin:$PATH"
+
+# Command to run Voxta Server
+CMD ["./Voxta.Server"]
