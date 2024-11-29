@@ -1,5 +1,8 @@
 FROM --platform=linux/amd64 ubuntu:latest
 
+# Define required ZIP file argument
+ARG ZIP_FILE
+
 # Avoid prompts during package installation
 ENV DEBIAN_FRONTEND=noninteractive
 
@@ -24,9 +27,9 @@ RUN add-apt-repository ppa:deadsnakes/ppa -y \
 WORKDIR /app
 
 # Copy and extract Voxta Server
-COPY Voxta.Server.Linux.v1.0.0-beta.134.zip .
-RUN unzip Voxta.Server.Linux.v1.0.0-beta.134.zip \
-    && rm Voxta.Server.Linux.v1.0.0-beta.134.zip
+COPY ${ZIP_FILE} .
+RUN unzip ${ZIP_FILE} \
+    && rm ${ZIP_FILE}
 
 # Update the server binding from localhost to 0.0.0.0 to allow external connections
 RUN sed -i 's/"http:\/\/localhost:5384"/"http:\/\/0.0.0.0:5384"/g' appsettings.json
