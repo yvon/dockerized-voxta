@@ -40,5 +40,5 @@ ENV PATH="/app/Data/Python/python-3.11-venv/bin:$PATH"
 # Expose the Voxta Server port
 EXPOSE 5384
 
-# Command to run Voxta Server with explicit host binding
-CMD ["./Voxta.Server", "--urls", "http://0.0.0.0:5384"]
+# Command to run Voxta Server
+CMD ["./Voxta.Server"]
