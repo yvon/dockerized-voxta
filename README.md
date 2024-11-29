@@ -28,10 +28,17 @@ Before building this container, you need to:
 
 3. Run the container:
    ```bash
-   docker run -p 5384:5384 voxta-server:latest
+   docker run --name voxta-server -p 5384:5384 voxta-server:latest
    ```
 
 The server will be accessible at `http://localhost:5384`
+
+To manage the named container:
+   ```bash
+   docker stop voxta-server    # Stop the container
+   docker start voxta-server   # Restart the container
+   docker rm voxta-server      # Remove the container (must be stopped first)
+   ```
 
 ## Deploying to Google Cloud Run
 
