@@ -30,8 +30,9 @@ WORKDIR /app
 COPY ${ZIP_FILE} .
 RUN unzip ${ZIP_FILE} \
     && mv Data Data_initial \
-    && mkdir Data \
-    && rm ${ZIP_FILE}
+    && mkdir Data
+# Remove ZIP file after extraction
+RUN rm ${ZIP_FILE}
 
 # Update the server binding from localhost to 0.0.0.0 to allow external connections
 RUN sed -i 's/"http:\/\/localhost:5384"/"http:\/\/0.0.0.0:5384"/g' appsettings.json
