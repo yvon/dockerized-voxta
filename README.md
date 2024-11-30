@@ -16,10 +16,11 @@ Before building this container, you need to:
 1. (Optional) Place any override files in the `override/` directory.
    Any file placed here will overwrite the corresponding file in the base installation.
    
-   Example: To use a preconfigured database, place it at:
+   Example: To use preconfigured data files, place them in:
    ```
-   override/Data/Voxta.db
+   override/Data/
    ```
+   This will override any files in the base installation's Data directory.
 
 2. Build the Docker image:
    ```bash
