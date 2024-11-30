@@ -22,7 +22,6 @@ primary_region = 'cdg'
 
 [deploy]
   strategy = "immediate"
-  release_command = "true"
 
 [[vm]]
   memory = '4gb'
