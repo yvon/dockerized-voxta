@@ -13,16 +13,7 @@ Before building this container, you need to:
 
 ## Building and Running
 
-1. (Optional) Place any override files in the `override/` directory.
-   Any file placed here will overwrite the corresponding file in the base installation.
-   
-   Example: To use preconfigured data files, place them in:
-   ```
-   override/Data/
-   ```
-   This will override any files in the base installation's Data directory.
-
-2. Build the Docker image:
+1. Build the Docker image:
    ```bash
    docker build --build-arg ZIP_FILE=your-voxta-server.zip -t voxta-server:latest .
    ```
