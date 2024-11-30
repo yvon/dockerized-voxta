@@ -32,30 +32,3 @@ To manage the named container:
    docker rm voxta-server      # Remove the container (must be stopped first)
    ```
 
-## Deploying to Google Cloud Run
-
-To deploy the container to Google Cloud Run, first set your project ID:
-
-```bash
-export GOOGLE_PROJECT=my-voxta-project-123
-```
-
-Then run these commands:
-
-```bash
-# Tag the image for Google Container Registry
-docker tag voxta-server:latest gcr.io/${GOOGLE_PROJECT}/voxta-server:latest
-
-# Push the image to Google Container Registry
-docker push gcr.io/${GOOGLE_PROJECT}/voxta-server:latest
-
-# Deploy to Cloud Run
-gcloud run deploy voxta-server \
-  --image gcr.io/${GOOGLE_PROJECT}/voxta-server:latest \
-  --platform managed \
-  --region europe-west1 \
-  --port 5384 \
-  --allow-unauthenticated
-```
-
-This will deploy the server and provide you with a public URL where your Voxta instance is accessible.
