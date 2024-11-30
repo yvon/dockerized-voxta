@@ -28,3 +28,4 @@ primary_region = 'cdg'
 [mounts]
   source = "voxta_data"
   destination = "/app/Data"
+  initial_size = "1gb"
