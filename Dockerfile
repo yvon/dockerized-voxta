@@ -1,7 +1,7 @@
 FROM --platform=linux/amd64 ubuntu:latest
 
-# Define required ZIP file argument
-ARG ZIP_FILE
+# Define ZIP file argument with default value
+ARG ZIP_FILE=Voxta.Server.Linux.zip
 
 # Avoid prompts during package installation
 ENV DEBIAN_FRONTEND=noninteractive

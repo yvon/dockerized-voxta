@@ -8,8 +8,8 @@ Please note that Voxta is not my project - I'm just providing a Docker configura
 Before deploying or building this container, you need to:
 
 1. Download the Voxta Server Linux package zip file
-2. Place this zip file in the same directory as the Dockerfile
-   **Important**: The build will fail if this file is not present!
+2. Rename it to `Voxta.Server.Linux.zip` and place it in the same directory as the Dockerfile
+   **Important**: The build will fail if this file is not present with exactly this name!
 
 ## Deploying to fly.io
 
@@ -20,9 +20,9 @@ Before deploying or building this container, you need to:
    fly auth login
    ```
 
-3. Launch your app (first time only) with the required arguments:
+3. Launch your app (first time only):
    ```bash
-   fly launch --build-arg ZIP_FILE=your-voxta-server.zip
+   fly launch
    ```
 
 4. Create a persistent volume (first time only):
@@ -32,7 +32,7 @@ Before deploying or building this container, you need to:
 
 5. For subsequent deployments:
    ```bash
-   fly deploy --build-arg ZIP_FILE=your-voxta-server.zip
+   fly deploy
    ```
 
 Your app will be accessible at the URL provided by fly.io after deployment.
@@ -41,7 +41,7 @@ Your app will be accessible at the URL provided by fly.io after deployment.
 
 1. Build the Docker image:
    ```bash
-   docker build --build-arg ZIP_FILE=your-voxta-server.zip -t voxta-server:latest .
+   docker build -t voxta-server:latest .
    ```
 
 2. Run the container:
