@@ -29,6 +29,8 @@ WORKDIR /app
 # Copy and extract Voxta Server
 COPY ${ZIP_FILE} .
 RUN unzip ${ZIP_FILE} \
+    && mv Data Data_initial \
+    && mkdir Data \
     && rm ${ZIP_FILE}
 
 # Update the server binding from localhost to 0.0.0.0 to allow external connections
@@ -36,10 +38,14 @@ RUN sed -i 's/"http:\/\/localhost:5384"/"http:\/\/0.0.0.0:5384"/g' appsettings.j
 
 # Setup Python virtual environment
 RUN python3.11 -m ensurepip --upgrade \
-    && python3.11 -m venv Data/Python/python-3.11-venv
+    && python3.11 -m venv Data_initial/Python/python-3.11-venv
+
+# Copy entrypoint script
+COPY entrypoint.sh .
+RUN chmod +x entrypoint.sh
 
 # Expose the Voxta Server port
 EXPOSE 5384
 
-# Command to run Voxta Server
-CMD ["./Voxta.Server"]
+# Use entrypoint script
+ENTRYPOINT ["/app/entrypoint.sh"]
