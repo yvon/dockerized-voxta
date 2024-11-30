@@ -13,10 +13,7 @@ Before deploying or building this container, you need to:
 
 ## Deploying to fly.io
 
-1. Install the flyctl CLI if you haven't already:
-   ```bash
-   curl -L https://fly.io/install.sh | sh
-   ```
+1. Install the flyctl CLI if you haven't already by following the [official installation guide](https://fly.io/docs/flyctl/install/)
 
 2. Login to fly.io:
    ```bash
