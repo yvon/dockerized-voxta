@@ -24,6 +24,7 @@ Before deploying or building this container, you need to:
    ```bash
    fly launch
    ```
+   When asked "Would you like to copy its configuration to the new app?", answer "yes"
 
 4. Create a persistent volume (first time only):
    ```bash
