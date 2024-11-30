@@ -20,6 +20,10 @@ primary_region = 'cdg'
   min_machines_running = 0
   processes = ['app']
 
+[deploy]
+  strategy = "immediate"
+  release_command = "true"
+
 [[vm]]
   memory = '4gb'
   cpu_kind = 'shared'
