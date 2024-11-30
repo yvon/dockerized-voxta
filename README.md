@@ -25,12 +25,12 @@ Before deploying or building this container, you need to:
 
 3. Launch your app (first time only) with the required arguments:
    ```bash
-   fly launch --dockerfile Dockerfile --build-arg ZIP_FILE=your-voxta-server.zip
+   fly launch --build-arg ZIP_FILE=your-voxta-server.zip
    ```
 
 4. For subsequent deployments:
    ```bash
-   fly deploy --dockerfile Dockerfile --build-arg ZIP_FILE=your-voxta-server.zip
+   fly deploy --build-arg ZIP_FILE=your-voxta-server.zip
    ```
 
 Your app will be accessible at the URL provided by fly.io after deployment.
