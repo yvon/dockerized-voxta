@@ -23,12 +23,17 @@ Before deploying or building this container, you need to:
    fly auth login
    ```
 
-3. Launch your app (first time only) with the required arguments:
+3. Create a persistent volume (first time only):
+   ```bash
+   fly volumes create voxta_data --size 1 --region cdg
+   ```
+
+4. Launch your app (first time only) with the required arguments:
    ```bash
    fly launch --build-arg ZIP_FILE=your-voxta-server.zip
    ```
 
-4. For subsequent deployments:
+5. For subsequent deployments:
    ```bash
    fly deploy --build-arg ZIP_FILE=your-voxta-server.zip
    ```
