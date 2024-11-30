@@ -26,12 +26,7 @@ Before deploying or building this container, you need to:
    ```
    When asked "Would you like to copy its configuration to the new app?", answer "yes"
 
-4. Create a persistent volume (first time only):
-   ```bash
-   fly volumes create voxta_data --size 1 --region cdg
-   ```
-
-5. For subsequent deployments:
+4. For subsequent deployments:
    ```bash
    fly deploy
    ```
