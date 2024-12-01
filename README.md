@@ -3,6 +3,18 @@
 This is a Docker container setup for running [Voxta](https://voxta.ai/), an AI voice chat application. 
 Please note that Voxta is not my project - I'm just providing a Docker configuration for it.
 
+## Cost-Effective Deployment on fly.io
+
+This configuration is optimized for cost-effectiveness on fly.io:
+
+- The app is configured to scale down to 0 when inactive, minimizing compute costs
+- It includes 1GB of persistent storage (€0.15/month), which is sufficient for most use cases
+- To keep costs low, it's recommended to use:
+  - Voxta Cloud for voice synthesis
+  - Deepgram for voice recognition
+  - OpenRouter for LLM access
+- While ChromaDB can run locally, it requires increasing storage to 10GB, which impacts costs
+
 ## Prerequisites
 
 Before deploying or building this container, you need to:
