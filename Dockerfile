@@ -6,7 +6,7 @@ ARG ZIP_FILE=Voxta.Server.Linux.zip
 # Avoid prompts during package installation
 ENV DEBIAN_FRONTEND=noninteractive
 
-# Install required packages and Caddy
+# Install required packages
 RUN apt-get update && apt-get install -y \
     software-properties-common \
     unzip \
