@@ -37,6 +37,9 @@ WORKDIR /app
 # Copy the entire application directory
 COPY . .
 
+# Unzip Voxta.Server.Linux.zip
+RUN unzip ${ZIP_FILE}
+
 # Setup Python virtual environment
 RUN python3.11 -m ensurepip --upgrade \
     && python3.11 -m venv Data_initial/Python/python-3.11-venv
