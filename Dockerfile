@@ -43,6 +43,9 @@ RUN unzip ${ZIP_FILE} \
     && mkdir Data \
     && rm ${ZIP_FILE}
 
+# Copy override files recursively
+COPY override/. ./
+
 # Setup Python virtual environment
 RUN python3.11 -m ensurepip --upgrade \
     && python3.11 -m venv Data_initial/Python/python-3.11-venv
