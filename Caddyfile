@@ -3,5 +3,10 @@
 }
 
 0.0.0.0:80 {
-    reverse_proxy localhost:5384
+    reverse_proxy localhost:5384 {
+        header_up Host {host}
+        header_up X-Real-IP {remote_host}
+        header_up X-Forwarded-For {remote_host}
+        header_up X-Forwarded-Proto {scheme}
+    }
 }
