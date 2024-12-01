@@ -9,7 +9,7 @@ This configuration is optimized for cost-effectiveness on fly.io:
 
 - The app is configured to scale down to 0 when inactive, minimizing compute costs
 - It includes 1GB of persistent storage (€0.15/month), which is sufficient for most use cases
-- Stick to remote services and avoid using local alternatives that require GPU to keep resource usage low
+- Stick to remote services as local alternatives requiring GPU will not work in this environment
 - Note that using ChromaDB as Memory Provider requires increasing storage to 10GB, which impacts costs
 
 ## Prerequisites
