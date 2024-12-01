@@ -1,3 +1,11 @@
+# fly.toml app configuration file generated for voxta on 2024-12-01T00:10:29+01:00
+#
+# See https://fly.io/docs/reference/configuration/ for information about how to use this file.
+#
+
+app = 'voxta'
+primary_region = 'cdg'
+
 [build]
   dockerfile = 'Dockerfile'
 
