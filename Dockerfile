@@ -36,8 +36,7 @@ WORKDIR /app
 
 # Copy the entire application directory
 COPY . .
-RUN mv Data Data_initial \
-    && mkdir Data
+RUN mkdir -p Data
 
 # Setup Python virtual environment
 RUN python3.11 -m ensurepip --upgrade \
