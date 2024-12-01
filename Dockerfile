@@ -34,13 +34,10 @@ RUN add-apt-repository ppa:deadsnakes/ppa -y \
 # Create app directory
 WORKDIR /app
 
-# Copy and extract Voxta Server
-COPY ${ZIP_FILE} .
-RUN unzip ${ZIP_FILE} \
-    && mv Data Data_initial \
+# Copy the entire application directory
+COPY . .
+RUN mv Data Data_initial \
     && mkdir Data
-# Remove ZIP file after extraction
-RUN rm ${ZIP_FILE}
 
 # Setup Python virtual environment
 RUN python3.11 -m ensurepip --upgrade \
