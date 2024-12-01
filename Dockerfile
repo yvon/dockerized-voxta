@@ -43,8 +43,8 @@ RUN unzip ${ZIP_FILE} \
     && mkdir Data \
     && rm ${ZIP_FILE}
 
-# Copy override files recursively
-COPY override/. ./
+# Copy Prompts directory to Resources
+COPY Prompts ./Resources/Prompts
 
 # Setup Python virtual environment
 RUN python3.11 -m ensurepip --upgrade \
