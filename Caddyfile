@@ -2,6 +2,6 @@
     admin off
 }
 
-:80 {
+0.0.0.0:80 {
     reverse_proxy localhost:5384
 }
