@@ -9,11 +9,8 @@ This configuration is optimized for cost-effectiveness on fly.io:
 
 - The app is configured to scale down to 0 when inactive, minimizing compute costs
 - It includes 1GB of persistent storage (€0.15/month), which is sufficient for most use cases
-- Stick to remote services as local alternatives require GPU:
-  - Voxta Cloud for voice synthesis and/or LLM access
-  - Deepgram for voice recognition
-  - OpenRouter for LLM access
-- While ChromaDB can be used as Memory Provider, it requires increasing storage to 10GB, which impacts costs
+- Stick to remote services and avoid using local alternatives that require GPU to keep resource usage low
+- Note that using ChromaDB as Memory Provider requires increasing storage to 10GB, which impacts costs
 
 ## Prerequisites
 
