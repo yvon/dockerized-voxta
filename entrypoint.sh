@@ -17,7 +17,7 @@ if [ -z "$(ls -A /app/Data)" ]; then
 fi
 
 # Start Caddy in background
-caddy reverse-proxy --from :80 --to :5384 &
+caddy start &
 
 # Start the server in background
 ./Voxta.Server &
