@@ -42,9 +42,6 @@ RUN unzip ${ZIP_FILE} \
 # Remove ZIP file after extraction
 RUN rm ${ZIP_FILE}
 
-# Update the server binding from localhost to 0.0.0.0 to allow external connections
-RUN sed -i 's/"http:\/\/localhost:5384"/"http:\/\/0.0.0.0:5384"/g' appsettings.json
-
 # Setup Python virtual environment
 RUN python3.11 -m ensurepip --upgrade \
     && python3.11 -m venv Data_initial/Python/python-3.11-venv
