@@ -46,8 +46,8 @@ RUN rm ${ZIP_FILE}
 RUN python3.11 -m ensurepip --upgrade \
     && python3.11 -m venv Data_initial/Python/python-3.11-venv
 
-# Copy entrypoint script and Caddyfile
-COPY entrypoint.sh Caddyfile ./
+# Copy entrypoint script
+COPY entrypoint.sh ./
 RUN chmod +x entrypoint.sh
 
 # Expose the Voxta Server port
