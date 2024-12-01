@@ -1,2 +1,6 @@
-0.0.0.0:80
-reverse_proxy :5384
+http://
+
+basic_auth {
+  yvon $2a$14$U4NUULZG29ikug4ffBzWzuFsd6EXhPzEVQpWDrR1./lwms1qXYa5K
+}
+reverse_proxy localhost:5384
