@@ -6,5 +6,8 @@ if [ -z "$(ls -A /app/Data)" ]; then
     cp -r /app/Data_initial/* /app/Data/
 fi
 
+# Start Caddy in background
+caddy start --config /app/Caddyfile
+
 # Start the server
-exec ./Voxta.Server
+./Voxta.Server

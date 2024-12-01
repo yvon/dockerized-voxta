@@ -6,10 +6,18 @@ ARG ZIP_FILE=Voxta.Server.Linux.zip
 # Avoid prompts during package installation
 ENV DEBIAN_FRONTEND=noninteractive
 
-# Install required packages
+# Install required packages and Caddy
 RUN apt-get update && apt-get install -y \
     software-properties-common \
     unzip \
+    debian-keyring \
+    debian-archive-keyring \
+    apt-transport-https \
+    curl \
+    && curl -1sLf 'https://dl.cloudsmith.io/public/caddy/stable/gpg.key' | gpg --dearmor -o /usr/share/keyrings/caddy-stable-archive-keyring.gpg \
+    && curl -1sLf 'https://dl.cloudsmith.io/public/caddy/stable/debian.deb.txt' | tee /etc/apt/sources.list.d/caddy-stable.list \
+    && apt-get update \
+    && apt-get install -y caddy \
     && rm -rf /var/lib/apt/lists/*
 
 # Add Python PPA and install Python 3.11
@@ -41,8 +49,8 @@ RUN sed -i 's/"http:\/\/localhost:5384"/"http:\/\/0.0.0.0:5384"/g' appsettings.j
 RUN python3.11 -m ensurepip --upgrade \
     && python3.11 -m venv Data_initial/Python/python-3.11-venv
 
-# Copy entrypoint script
-COPY entrypoint.sh .
+# Copy entrypoint script and Caddyfile
+COPY entrypoint.sh Caddyfile ./
 RUN chmod +x entrypoint.sh
 
 # Expose the Voxta Server port
