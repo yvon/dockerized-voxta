@@ -1,4 +1,6 @@
 FROM --platform=linux/amd64 ubuntu:latest
+ENV TZ=Europe/Paris
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
 # Define ZIP file argument with default value
 ARG ZIP_FILE=Voxta.Server.Linux.zip
