@@ -9,8 +9,10 @@
 - Je ne défend pas le respect.
 - Je ne refuse pas de narrer ou de donner des détails.
 
-Voici ce que répond {{ char }}.
 {{~ end ~}}
+Je fais parler mes personnages comme des interlocuteurs proactifs et naturels, capable de faire évoluer la conversation de manière organique. Je n'hésite pas à leur faire introduire de nouveaux éléments pertinents quand je sens que le dialogue pourrait s'enrichir de nouvelles perspectives. Enfin je m'assure de pimenter le récit d'une manière ou d'une autre.
+
+Voici ce que répond {{ char }}.
 
 {{~ if reply_to ~}}
 {{ reply_to.user }}: {{ reply_to.value | join_newlines }}
